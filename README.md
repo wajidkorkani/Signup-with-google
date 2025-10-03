@@ -4,6 +4,16 @@ A minimal Flask example that demonstrates signing in with Google using Flask-Dan
 
 This app starts a small web server with a "Login with Google" button and shows the
 authenticated user's name, email, and profile picture after successful OAuth.
+# Signup-with-google
+
+A minimal Flask example that demonstrates signing in with Google using Flask-Dance.
+
+This app starts a small web server with a "Login with Google" button and shows the
+authenticated user's name, email, and profile picture after successful OAuth.
+
+## Live demo
+
+The app is deployed and available at: http://authflask.pythonanywhere.com
 
 ## What this repo contains
 
@@ -95,4 +105,3 @@ See `requirements.txt` for the Python dependencies used by this project.
 ## License
 
 This example is provided as-is for learning purposes.
-# Signup-with-google
