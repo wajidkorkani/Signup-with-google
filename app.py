@@ -12,7 +12,6 @@ app.secret_key = "supersekrit"   # change in production
 client_id = "YourGoogleClientID"
 client_secret = "YourGoogleClientSecret"
 
-
 google_bp = make_google_blueprint(
     client_id=client_id,
     client_secret=client_secret,
