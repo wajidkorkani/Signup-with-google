@@ -1,0 +1,4 @@
+Flask>=2.2,<3
+Flask-Dance>=6.5.0
+requests>=2.31.0
+requests-oauthlib>=1.3.1
