@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, url_for, render_template_string
+from flask import Flask, redirect, url_for, render_template as render
 from flask_dance.contrib.google import make_google_blueprint, google
 
 # Allow HTTP for local dev
@@ -11,6 +11,7 @@ app.secret_key = "supersekrit"   # change in production
 # 🔑 Replace with your Google credentials
 client_id = "YourGoogleClientID"
 client_secret = "YourGoogleClientSecret"
+
 
 google_bp = make_google_blueprint(
     client_id=client_id,
@@ -27,10 +28,7 @@ app.register_blueprint(google_bp, url_prefix="/login")
 
 @app.route("/")
 def index():
-    return render_template_string("""
-        <h2>Google Login Test</h2>
-        <a href="{{ url_for('google.login') }}">Login with Google</a>
-    """)
+    return render("login.html")
 
 
 @app.route("/google_login")
@@ -44,12 +42,7 @@ def google_login():
         return f"Error: {resp.text}"
     
     user_info = resp.json()
-    return render_template_string("""
-        <h2>Welcome, {{ name }}!</h2>
-        <p>Email: {{ email }}</p>
-        <p>Picture url: {{ picture }}</p>
-        <p><img src="{{ picture }}" alt="profile picture"></p>
-    """, name=user_info["name"], email=user_info["email"], picture=user_info["picture"])
+    return render("home.html", name=user_info["name"], email=user_info["email"], picture=user_info["picture"])
 
 
 if __name__ == "__main__":
